@@ -7,11 +7,11 @@ const fetchBreedDescription = (breed, callback) => {
 
     if (!error) {
       const data = JSON.parse(body);
-      console.log(typeof data);
+      // console.log(typeof data);
       if (data.length === 0) {
-        return callback("Breed not found with error", null);
+        return callback(null, "No data found for this breed");
       } else {
-        return callback(`Description of ${breed} : ${data[0].description}`, null);
+        return callback(null, `Description of ${breed} : ${data[0].description}`);
       }
     }
 
